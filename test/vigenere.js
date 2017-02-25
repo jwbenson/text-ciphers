@@ -1,88 +1,88 @@
 require('chai').should();
-const VegenereCipher = require('../index').VegenereCipher;
+const VigenereCipher = require('../index').VigenereCipher;
 
-describe("vegenere", () => {
+describe("vigenere", () => {
 
 	it("encipher and decipher (plain square) verify known", () => {
-		var vegenereCipher = new VegenereCipher({
+		var vigenereCipher = new VigenereCipher({
 			keyword: 'abcd'
 		});
 
 		// https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher
 		var plaintext = 'CRYPTOISSHORTFORCRYPTOGRAPHY';
-		var enciphered = vegenereCipher.encipher(plaintext);
+		var enciphered = vigenereCipher.encipher(plaintext);
 
 		enciphered.should.equal('CSASTPKVSIQUTGQUCSASTPIUAQJB'.toLowerCase());
 
-		var deciphered = vegenereCipher.decipher(enciphered);
+		var deciphered = vigenereCipher.decipher(enciphered);
 		deciphered.should.equal(plaintext.toLowerCase().replace(/[^a-z]/g, ''));
 	});
 
 	it("encipher and decipher (plain square)", () => {
-		var vegenereCipher = new VegenereCipher({
+		var vigenereCipher = new VigenereCipher({
 			keyword: 'king'
 		});
 
 		var plaintext = 'The Quick Brown Fox Jumped Over the Lazy Dog';
-		var enciphered = vegenereCipher.encipher(plaintext);
+		var enciphered = vigenereCipher.encipher(plaintext);
 
-		var deciphered = vegenereCipher.decipher(enciphered);
+		var deciphered = vigenereCipher.decipher(enciphered);
 
 		deciphered.should.equal(plaintext.toLowerCase().replace(/[^a-z]/g, ''));
 	});
 
 	it("encipher and decipher (random square)", () => {
-		var vegenereCipher = new VegenereCipher({
+		var vigenereCipher = new VigenereCipher({
 			keyword: 'abcd',
 			randomSquare: true
 		});
 
-		(vegenereCipher.square[0] +
-		vegenereCipher.square[1][0] + vegenereCipher.square[1][25]).should.not.equal('abcdefghijklmnopqrstuvwxyzazba');
+		(vigenereCipher.square[0] +
+		vigenereCipher.square[1][0] + vigenereCipher.square[1][25]).should.not.equal('abcdefghijklmnopqrstuvwxyzazba');
 
 		var plaintext = 'The Quick Brown Fox Jumped Over the Lazy Dog';
-		var enciphered = vegenereCipher.encipher(plaintext);
+		var enciphered = vigenereCipher.encipher(plaintext);
 
-		var deciphered = vegenereCipher.decipher(enciphered);
+		var deciphered = vigenereCipher.decipher(enciphered);
 		deciphered.should.equal(plaintext.toLowerCase().replace(/[^a-z]/g, ''));
 	});
 
 	it("encipher and decipher (plain square, random 26 character keyword)", () => {
-		var vegenereCipher = new VegenereCipher({
-			keyword: VegenereCipher.createKeyRandom()
+		var vigenereCipher = new VigenereCipher({
+			keyword: VigenereCipher.createKeyRandom()
 		});
 
 		var plaintext = 'The Quick Brown Fox Jumped Over the Lazy Dog';
-		var enciphered = vegenereCipher.encipher(plaintext);
+		var enciphered = vigenereCipher.encipher(plaintext);
 
-		var deciphered = vegenereCipher.decipher(enciphered);
+		var deciphered = vigenereCipher.decipher(enciphered);
 		deciphered.should.equal(plaintext.toLowerCase().replace(/[^a-z]/g, ''));
 	});
 
 	it("preserve spaces option", () => {
-		var vegenereCipher = new VegenereCipher({
+		var vigenereCipher = new VigenereCipher({
 			keyword: 'king',
 			preserveSpaces: true
 		});
 
 		var plaintext = 'The Quick Brown Fox Jumped Over the Lazy Dog';
-		var enciphered = vegenereCipher.encipher(plaintext);
+		var enciphered = vigenereCipher.encipher(plaintext);
 
-		var deciphered = vegenereCipher.decipher(enciphered);
+		var deciphered = vigenereCipher.decipher(enciphered);
 
 		deciphered.should.equal(plaintext.toLowerCase().replace(/[^a-z\s]/g, ''));
 	});
 
 	it("preserve other option", () => {
-		var vegenereCipher = new VegenereCipher({
+		var vigenereCipher = new VigenereCipher({
 			keyword: 'king',
 			preserveOther: true
 		});
 
 		var plaintext = 'The !Quick Brown Fox Jumped Over the Lazy !Dog';
-		var enciphered = vegenereCipher.encipher(plaintext);
+		var enciphered = vigenereCipher.encipher(plaintext);
 
-		var deciphered = vegenereCipher.decipher(enciphered);
+		var deciphered = vigenereCipher.decipher(enciphered);
 
 		deciphered.should.equal(plaintext.toLowerCase().replace(/[\s]/g, ''));
 	});

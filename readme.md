@@ -1,7 +1,7 @@
 
 # Text Ciphers
 
-Monoalphabetic ciphers (substitution cipher) and Vegenère square ciphers (US ASCII alphabet only (A-Z)) for use with node.js or CommonJS.
+Monoalphabetic ciphers (substitution cipher) and Vigenère square ciphers (US ASCII alphabet only (A-Z)) for use with node.js or CommonJS.
 
 *Note* in almost all cases using this package for actual cryptography is a pretty bad idea.  These were created for fun and are intended for educational purposes only.
 
@@ -21,16 +21,16 @@ const enciphered = monoalphabeticCipher.encipher('The Quick Brown Fox Jumped Ove
 const deciphered = monoalphabeticCipher.decipher(enciphered);
 ```
 
-#### Vegenère cipher
+#### Vigenère cipher
 ```
-const VegenereCipher = require('text-ciphers').VegenereCipher;
-const vegenereCipher = new VegenereCipher({
+const VigenereCipher = require('text-ciphers').VigenereCipher;
+const vigenereCipher = new VigenereCipher({
 	keyword: 'hopper'
 });
 
-const enciphered = vegenereCipher.encipher('The Quick Brown Fox Jumped Over the Lazy Dog');
+const enciphered = vigenereCipher.encipher('The Quick Brown Fox Jumped Over the Lazy Dog');
 
-const deciphered = vegenereCipher.decipher(enciphered);
+const deciphered = vigenereCipher.decipher(enciphered);
 ```
 
 ## Options
@@ -41,7 +41,7 @@ const deciphered = vegenereCipher.decipher(enciphered);
 ### MonoAlphabeticCipher options
 ```substitution``` - Substitution alphabet to use (required)
 
-### VegenereCipher options
+### VigenereCipher options
 ```keyword``` - string to use to encipher and decipher (required)
 ```square``` - 26x26 square to use for enciphering and deciphering (optional, default = false)
 ```randomSquare``` - Use a randomized 26x26 character square (optional, default = false)
@@ -52,8 +52,8 @@ const deciphered = vegenereCipher.decipher(enciphered);
 ```MonoAlphabeticCipher.createKeyByShift(shiftPlaces)``` - create substitution alphabet by shifting letters to the left or right ```shiftPlaces``` spaces
 ```MonoAlphabeticCipher.createKeyRandom()``` - create a substitution alphabet by randomizing the letters A-Z (Fischer-Yates shuffle)
 
-### VegenereCipher
-```VegenereCipher.createSquare(random)``` - create a 26x26 square for use with a Vegenère cipher.  boolean ```random``` default = false
+### VigenereCipher
+```VigenereCipher.createSquare(random)``` - create a 26x26 square for use with a Vigenère cipher.  boolean ```random``` default = false
 
 See tests in ```/test``` for examples for using various options and static methods
 

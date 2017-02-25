@@ -1,6 +1,6 @@
 const MonoAlphabeticCipher = require('./monoalphabetic');
 
-class VegenereCipher extends MonoAlphabeticCipher {
+class VigenereCipher extends MonoAlphabeticCipher {
 
 	constructor(options) {
 		super(options);
@@ -10,11 +10,11 @@ class VegenereCipher extends MonoAlphabeticCipher {
 
 		// create 26x26 square
 		if (!this.square || this.square.length == 0) {
-			this.square = VegenereCipher.createSquare(options.randomSquare);
+			this.square = VigenereCipher.createSquare(options.randomSquare);
 		}
 
 		if (this.square.length < 26) {
-			throw new Error('Vegenere square must be of size 26x26');
+			throw new Error('Vigenere square must be of size 26x26');
 		}
 	}
 
@@ -69,11 +69,11 @@ class VegenereCipher extends MonoAlphabeticCipher {
 		var square = [];
 
 		if (random) {
-			var indexRow = VegenereCipher.createKeyRandom().split('');
+			var indexRow = VigenereCipher.createKeyRandom().split('');
 
 			for (var i = 0; i < 26; i++) {
 				var startLetter = indexRow[i];
-				var randomKey = VegenereCipher.createKeyRandom().split('');
+				var randomKey = VigenereCipher.createKeyRandom().split('');
 
 				randomKey.splice(randomKey.indexOf(startLetter), 1);
 				randomKey.splice(0, 0, startLetter);
@@ -83,7 +83,7 @@ class VegenereCipher extends MonoAlphabeticCipher {
 		}
 		else {
 			for (var i = 0; i < 26; i++) {
-				square.push(VegenereCipher.createKeyByShift(i));
+				square.push(VigenereCipher.createKeyByShift(i));
 			}
 		}
 
@@ -91,4 +91,4 @@ class VegenereCipher extends MonoAlphabeticCipher {
 	}
 }
 
-module.exports = VegenereCipher;
+module.exports = VigenereCipher;

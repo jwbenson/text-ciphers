@@ -1,7 +1,7 @@
 {
   "name": "text-ciphers",
-  "version": "0.5.0",
-  "description": "Monoalphabetic substitution and Vegenere ciphers",
+  "version": "0.5.1",
+  "description": "Monoalphabetic substitution and Vigenere ciphers",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -10,7 +10,7 @@
     "test": "mocha test"
   },
   "keywords": [
-    "vegenere",
+    "vigenere",
     "monoalphabetic",
     "ciphers"
   ],
