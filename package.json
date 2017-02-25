@@ -1,0 +1,22 @@
+{
+  "name": "text-ciphers",
+  "version": "0.5.0",
+  "description": "Monoalphabetic substitution and Vegenere ciphers",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "keywords": [
+    "vegenere",
+    "monoalphabetic",
+    "ciphers"
+  ],
+  "author": "Jason Benson <repos@jasonbenson.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0"
+  }
+}
