@@ -5,7 +5,13 @@ Monoalphabetic ciphers (substitution cipher) and Vigenère square ciphers (US AS
 
 *Note* in almost all cases using this package for actual cryptography is a pretty bad idea.  These were created for fun and are intended for educational purposes only.
 
-## Examples:
+## Install
+
+```
+npm i text-ciphers
+```
+
+## Examples
 
 #### Monoalphabetic cipher
 ```
@@ -58,5 +64,5 @@ const deciphered = vigenereCipher.decipher(enciphered);
 See tests in ```/test``` for examples for using various options and static methods
 
 
-## Run tests
-```mocha test```
+## Tests
+```npm test```
